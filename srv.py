@@ -4,16 +4,21 @@ import tornado.web
 from pydub import AudioSegment
 import os 
 
-__UPLOADS__ = "uploads/"
-__DOWNLOADS__ = "downloads/"
+__UPLOADS__ = "tmp/"
+__DOWNLOADS__ = "tmp/"
 
 def overdub(_files, _returnPath):
-	print(_files[0], _files[1])
 	s1, s2 = AudioSegment.from_wav(_files[0]), AudioSegment.from_wav(_files[1])
 	_dubbed = s1.overlay(s2)
 	_dubbed.export(_returnPath, format='wav')
+	os.remove(_files[0])
+	os.remove(_files[1])
 	return True
 
+
+def filename_gen():
+	import uuid
+	return "{0}.wav".format(uuid.uuid4())
  
 class DSLinfo(tornado.web.RequestHandler):
     def get(self):
@@ -23,7 +28,8 @@ class DSLinfo(tornado.web.RequestHandler):
 class Upload(tornado.web.RequestHandler):
 	def post(self):
 		_paths = []
-		_returnPath = __DOWNLOADS__ + 'ret.wav'
+		filename = filename_gen()
+		_returnPath = __DOWNLOADS__ + filename
 		_httpfiles = self.request.files['audioFile1'][0], self.request.files['audioFile2'][0]
 		for _httpfile in _httpfiles:
 			_name = _httpfile['filename']
@@ -32,7 +38,10 @@ class Upload(tornado.web.RequestHandler):
 			_paths.append(__UPLOADS__ + _name)
 			print(_name)
 		if overdub(_paths, _returnPath) == True:
-			self.write(str(_returnPath))
+			fr = open(_returnPath, 'rb')
+			self.write(fr.read())
+			#self.render("static/mixdown.html", mixfile = _returnPath)
+		os.remove(_returnPath)
 
 
 application = tornado.web.Application([
