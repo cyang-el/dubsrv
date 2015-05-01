@@ -8,7 +8,7 @@ __UPLOADS__ = "tmp/"
 __DOWNLOADS__ = "tmp/"
 
 def overdub(_files, _returnPath):
-	s1, s2 = AudioSegment.from_wazv(_files[0]), AudioSegment.from_wav(_files[1])
+	s1, s2 = AudioSegment.from_wav(_files[0]), AudioSegment.from_wav(_files[1])
 	_dubbed = s1.overlay(s2)
 	_dubbed.export(_returnPath, format='wav')
 	os.remove(_files[0])
