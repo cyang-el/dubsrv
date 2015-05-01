@@ -8,7 +8,7 @@ How
 1. `install docker <http://docs.docker.com/installation/debian/>`_ 
 2. Pull the images from dockerhub::
 
-	docker pull showjackyang/dubsrv
+	sudo docker pull showjackyang/dubsrv
 
 3. Run the images::
 
