@@ -47,7 +47,7 @@ class Upload(tornado.web.RequestHandler):
 application = tornado.web.Application([
         (r"/", DSLinfo),
         (r"/upload", Upload),
-        ], debug=True)
+        ], debug=False)
  
  
 if __name__ == "__main__":

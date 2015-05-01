@@ -6,12 +6,12 @@ A simple wav dubbing web api using `tornado <https://github.com/tornadoweb/torna
 How
 ---
 1. `Install docker <http://docs.docker.com/installation/debian/>`_ 
-2. Pull the images from dockerhub::
+2. Pull the docker image from dockerhub::
 
 	sudo docker pull showjackyang/dubsrv
 
-3. Run the images::
+3. Run the docker image::
 
 	sudo docker run -d -p 8888:8888 showjackyang/dubsrv
 
-4. Posting http request with two wav files to *<your url>:8888/upload* will return a dubbed wav file.
+4. Posting http request with two wav files to *localhost:8888/upload* will return a dubbed wav file.
