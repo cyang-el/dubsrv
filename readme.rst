@@ -5,12 +5,10 @@ a simple wav dubbing web api using `tornado <https://github.com/tornadoweb/torna
 How
 ---
 1. `install docker <http://docs.docker.com/installation/debian/>`_ 
-2. Pull the images from dockerhub
+2. Pull the images from dockerhub::
 
-::
 	docker pull showjackyang/dubsrv
 
-3. Run the images
+3. Run the images::
 
-::
 	sudo docker run -d -p 8888:8888 showjackyang/dubsrv
