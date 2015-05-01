@@ -14,4 +14,4 @@ How
 
 	sudo docker run -d -p 8888:8888 showjackyang/dubsrv
 
-4. Sending http post with two wav files to port 8888 will return a dubbed wav file.
+4. Posting http request with two wav files to port *<your url>:8888/upload* will return a dubbed wav file.
