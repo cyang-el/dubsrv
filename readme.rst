@@ -1,11 +1,11 @@
 What
 ----
-a simple wav dubbing web api using `tornado <https://github.com/tornadoweb/tornado>`_ and `pydub <https://github.com/jiaaro/pydub>`_.
+A simple wav dubbing web api using `tornado <https://github.com/tornadoweb/tornado>`_ and `pydub <https://github.com/jiaaro/pydub>`_.
 *(only for Samplerate 44100.0 Hz Bitdepth 16bits wav files)*
 
 How
 ---
-1. `install docker <http://docs.docker.com/installation/debian/>`_ 
+1. `Install docker <http://docs.docker.com/installation/debian/>`_ 
 2. Pull the images from dockerhub::
 
 	sudo docker pull showjackyang/dubsrv
